@@ -151,3 +151,42 @@ void pop_back(struct string *string)
   string->size--;
   return;
 }
+
+void insert(struct string *string, unsigned long long int index, char value)
+{
+  if(string == NULL)
+  {
+    return;
+  }
+
+  if(index < 0 || string->size < index) 
+  {
+    return; 
+  }
+
+  if(index == 0)
+  {
+    pop_front(string);
+    return;
+  }
+
+  if(index == string->size)
+  {
+    pop_back(string);
+    return;
+  }
+
+  struct __char *aux = string->start;
+  
+  for(int i = 0; (i < index) || (aux != NULL); i++)
+  {
+    aux = aux->next;
+  }
+
+  aux->prev->next = aux->next;
+  aux->next->prev = aux->prev;
+  free(aux);
+  aux = NULL;
+  string->size--;
+  return;
+}

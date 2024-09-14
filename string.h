@@ -8,5 +8,6 @@ void push_front(struct string*, char);
 void push_back(struct string*, char);
 void pop_front(struct string*);
 void pop_back(struct string*);
+void insert(struct string*, unsigned long long int, char);
 
 #endif // STRINGS
