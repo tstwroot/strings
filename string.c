@@ -123,3 +123,31 @@ void pop_front(struct string *string)
   string->size--;
   return;
 }
+
+void pop_back(struct string *string)
+{
+  if(string == NULL)
+  {
+    return;
+  }
+
+  if(string->size == 0)
+  {
+    return;
+  }
+
+  if(string->size == 1)
+  {
+    free(string->start);
+    string->start = NULL;
+    string->end = NULL;
+    string->size--;
+    return;
+  }
+
+  struct __char *aux = string->end->prev;
+  free(string->end);
+  string->end = aux;
+  string->size--;
+  return;
+}
