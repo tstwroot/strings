@@ -33,7 +33,7 @@ struct __char *new_char(char value)
   return new_char;
 }
 
-struct string *new_string()
+struct string *new_string(const char *value)
 {
   struct string *new_string = malloc(sizeof(struct string));
 
@@ -41,6 +41,14 @@ struct string *new_string()
   {
     fprintf(stderr, "strings error: failed to allocate memory.\n");
     return NULL;
+  }
+
+  if(value != NULL)
+  {
+    for(int i = 0; value[i] != 0; i++) 
+      push_back(new_string, value[i]);
+    
+    return new_string;
   }
 
   new_string->start = NULL;

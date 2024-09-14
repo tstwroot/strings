@@ -3,7 +3,7 @@
 
 struct string;
 
-struct string *new_string();
+struct string *new_string(const char *);
 void push_front(struct string*, char);
 void push_back(struct string*, char);
 void pop_front(struct string*);
