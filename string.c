@@ -190,3 +190,18 @@ void insert(struct string *string, unsigned long long int index, char value)
   string->size--;
   return;
 }
+
+void show_string(struct string *string)
+{
+  struct __char *aux = string->start;
+
+  while(aux != NULL)
+  {
+    write(1, &aux->c, 1);
+    aux = aux->next;
+  }
+  write(1, &"\n", 1);
+
+  aux = NULL;
+  return;
+}
