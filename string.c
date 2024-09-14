@@ -47,3 +47,27 @@ struct string *new_string()
   new_string->size = 0;
   return new_string;
 }
+
+void push_front(struct string *string, char value)
+{
+  if(string == NULL)
+  {
+    // Put a error message here.
+    return;
+  }
+
+  if(string->size == 0)
+  {
+    string->start = new_char(value);
+    string->end = string->start;
+    string->size++;
+    return;
+  }
+
+  struct __char *aux = string->start;
+  string->start = new_char(value);
+  string->start->next = aux;
+  aux->prev = string->start;
+  string->size++;
+  return;
+}
