@@ -1,4 +1,5 @@
 #include "strings.h"
+#include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
 
@@ -22,7 +23,7 @@ struct __char *new_char(char value)
   
   if(new_char == NULL)
   {
-    // Put a error message here.
+    fprintf(stderr, "strings error: failed to allocate memory.\n");
     return NULL;
   }
 
@@ -38,7 +39,7 @@ struct string *new_string()
 
   if(new_string == NULL)
   {
-    // Put a error message here.
+    fprintf(stderr, "strings error: failed to allocate memory.\n");
     return NULL;
   }
 
@@ -52,7 +53,7 @@ void push_front(struct string *string, char value)
 {
   if(string == NULL)
   {
-    // Put a error message here.
+    fprintf(stderr, "strings error: in push_front() string == NULL.\n");
     return;
   }
 
@@ -76,7 +77,7 @@ void push_back(struct string *string, char value)
 {
   if(string == NULL)
   {
-    // Put a error message here. 
+    fprintf(stderr, "strings error: in push_back() string == NULL.\n"); 
     return;
   }
 
@@ -156,6 +157,7 @@ void insert(struct string *string, unsigned long long int index, char value)
 {
   if(string == NULL)
   {
+    fprintf(stderr, "strings error: in insert() string == NULL.\n");
     return;
   }
 
