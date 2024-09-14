@@ -95,3 +95,31 @@ void push_back(struct string *string, char value)
   string->size++;
   return;
 }
+
+void pop_front(struct string *string)
+{
+  if(string == NULL)
+  {
+    return;
+  }
+  
+  if(string->size == 0)
+  {
+    return;
+  }
+
+  if(string->size == 1)
+  {
+    free(string->start);
+    string->start = NULL;
+    string->end = NULL;
+    string->size--;
+    return;
+  }
+
+  struct __char *aux = string->start->next;
+  free(string->start);
+  string->start = aux;
+  string->size--;
+  return;
+}
