@@ -71,3 +71,27 @@ void push_front(struct string *string, char value)
   string->size++;
   return;
 }
+
+void push_back(struct string *string, char value)
+{
+  if(string == NULL)
+  {
+    // Put a error message here. 
+    return;
+  }
+
+  if(string->size == 0)
+  {
+    string->start = new_char(value);
+    string->end = string->start;
+    string->size++;
+    return;
+  }
+  
+  struct __char *aux = string->end;
+  string->end = new_char(value);
+  string->end->prev = aux;
+  aux->next = string->end;
+  string->size++;
+  return;
+}
