@@ -205,3 +205,19 @@ void show_string(struct string *string)
   aux = NULL;
   return;
 }
+
+char *get_string(struct string *string)
+{
+  char *return_string = calloc(string->size + 1, sizeof(char));
+
+  struct __char *aux = string->start;
+
+  for(int i = 0; i < string->size || aux != NULL; i++)
+  {
+    return_string[i] = aux->c;
+    aux = aux->next;
+  }
+
+  aux = NULL;
+  return return_string;
+}

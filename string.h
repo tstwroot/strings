@@ -10,5 +10,6 @@ void pop_front(struct string*);
 void pop_back(struct string*);
 void insert(struct string*, unsigned long long int, char);
 void show_string(struct string*);
+char *get_string(struct string*);
 
 #endif // STRINGS
